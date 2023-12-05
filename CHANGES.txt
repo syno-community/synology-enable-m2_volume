@@ -1,0 +1,56 @@
+V1.1.14
+- Removed the need for bc by using xargs instead.
+
+v1.1.13
+- Changed to avoid downloading malicious file if GitHub account is hacked:
+    - Now only downloads bc if bc is not found in PATH or in script location.
+    - Now asks to download bc if --autoupdate option not used.
+    - Now checks md5 hash of downloaded bc file.
+
+v1.1.12-RC
+- Bug fix for getting bc location.
+
+v1.1.11-RC
+- Now only downloads bc if bc is not found in PATH or in script location.
+- Now asks to download bc if --autoupdate option not used.
+
+v1.0.10
+- Added -n, --noreboot option to never reboot after script has run.
+- Changed to only ask to reboot if script patched file and -n, --noreboot option not used.
+- Changed to automatically download and install bc, if needed.
+- Bug fix added --email and --autoupdate to --help
+
+v1.0.9
+- Added --autoupdate=[age] option to auto update syno_enable_m2_volume x days after new version released.
+    - Autoupdate logs update success or errors to DSM system log.
+- Added -e --email option to disable coloured output to make task scheduler emails easier to read.
+- Bug fix for script not updating itself if .sh file had been renamed.
+- Bug fix for missing executable permissions if .sh file had been renamed.
+- Bug fix to prevent update loop if script's .tar.gz file already exists in /tmp.
+- Bug fix to prevent update failing if script's temp folder already exists in /tmp.
+- Now only copies CHANGES.txt to script location if script is located on a volume, to prevent putting CHANGES.txt on system partition (/usr/bin, /usr/sbin, /root etc.)
+
+v1.0.8
+- Now script automatically reloads itself after updating.
+- Bug fix to prevent error if NVMe drive not found in /run/synostorage/disks/
+
+v1.0.7
+- Changed to enable m2_pool_support in synostorage.
+
+v1.0.6
+- Changed so you don't also need to run Synology_HDD_db as well.
+    - Now adds support_m2_pool="yes" if missing in synoinfo.conf (for DSM 7.1.1)
+    - Now checks support_m2_pool is set to yes.
+- Prevent running with "sh scriptname.sh".
+- Added timeout to "reboot now" question so script can be scheduled to run at shut-down.
+- Added ding sound when script exists due to an error.
+
+v1.0.5
+- Changed to show usage if invalid long option used instead of continuing.
+- Show the options used.
+
+v1.0.4
+- Changed reboot message
+
+v1.0.3
+- First release
